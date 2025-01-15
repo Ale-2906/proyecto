@@ -1,0 +1,147 @@
+.modalGlobal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .NuevoActivo {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 900px;
+    animation: fadeIn 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que los botones se ubiquen al final */
+    height: 100%; /* Para que ocupe toda la altura */
+    overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+  }
+  
+  .formTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Estilo del formulario */
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 15px;
+    flex-grow: 1; /* Hace que el formulario ocupe el espacio disponible */
+  }
+  
+  /* Agrupar cada campo */
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .formLabel {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #555;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Estilos de inputs y selects */
+  .formInput,
+  .formSelect {
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+
+  }
+  
+  .formInput:focus,
+  .formSelect:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Estilo de los botones */
+  .formActions {
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btnPrimary {
+    background-color: #7c181a;
+    color: white;
+  }
+  
+  .btnPrimary:hover {
+    background-color: #db212f;
+  }
+  
+  .btnSecondary {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .btnSecondary:hover {
+    background-color: #495057;
+  }
+  
+  /* Estilo de los selects */
+  .formSelect {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .formSelect:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

@@ -5,6 +5,7 @@ import ActiveView from "../Actives/ActiveView";
 import MantenPrincipal from "../Manten/MantenPrincipal";
 import MantenProceso from "../Manten/MantenProceso";
 import ModalHisManten from "../Manten/ModalHisManten";
+import CrearActivo from "../ActivosLotes/CrearActivo";
 
 
 const VentanaPrincipalFun = ({ activeView, setActiveView }) => {
