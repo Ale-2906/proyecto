@@ -1,7 +1,7 @@
 
 <?php 
-echo __DIR__ . '\vendor\autoload.php';
-require __DIR__ . '\vendor\autoload.php'; // Ajusta la ruta según tu proyecto
+echo __DIR__ . '..\vendor\autoload.php';
+require __DIR__ . '..\vendor\autoload.php'; // Ajusta la ruta según tu proyecto
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

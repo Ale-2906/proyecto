@@ -1,0 +1,51 @@
+.modalContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between; /* Hace que los elementos se alineen horizontalmente */
+    margin-bottom: 20px;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Para que cada columna ocupe la mitad del contenedor */
+  }
+  
+  .column label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .selectContainer {
+    margin-bottom: 16px;
+  }
+  
+  .textAreaContainer {
+    margin-top: 20px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

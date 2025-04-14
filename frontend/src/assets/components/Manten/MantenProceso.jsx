@@ -286,9 +286,9 @@ function MantenProceso({ datosMantenimiento }) {
           <button className={styles1["primary-button"]} onClick={abrirModalAgregarAct}>Agregar Activos</button>
         </div>
         ) : (
-          <div>
-            <button onClick={cambioEstado}>Cambiar Estado</button>
-            <button onClick={abrirModalHistorial}>Detalles</button>
+          <div className={styles1["action-buttons"]}>
+            <button className={styles1["primary-button"]} onClick={cambioEstado}>Cambiar Estado</button>
+            <button className={styles1["primary-button"]} onClick={abrirModalHistorial}>Detalles</button>
           </div>)}
 
 

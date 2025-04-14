@@ -6,9 +6,12 @@ import mostrarMensaje from "../Mensajes/Mensaje.js";
 import { useTokenVerification } from "../../Services/TokenVerification";
 import ModalEditarActivo from "./ModalEditarActivo.jsx";
 import stylesModal from "./ModalEdEstilos.module.css";
+import ModalAgregarLotes  from "./ModalActivoLote.jsx";
+
 
 const ActiveView = ({ onClose }) => {
   const [estadoAbrirModal, setEstadoAbrirModal] = useState(false);
+  const [modalLotesAbierto, setModalLotesAbierto] = useState(false);
   const [actEditar,setActEditar]=useState("");
   const checkTokenAndRedirect = useTokenVerification(); // Verificar token
     const {
@@ -159,7 +162,29 @@ useEffect(() => {
   };
   const cerrarModal = () => {
     setEstadoAbrirModal(false);
+    setDatos((prevDatos) => ({
+      ...prevDatos,
+      activos: [],
+    }));
   };
+  const abrirModalLotes = () => {
+    const tokenValid = checkTokenAndRedirect();
+    if (!tokenValid) {
+      mostrarMensaje({
+        title: "Sesión expirada",
+        text: "Inicia sesión nuevamente",
+        icon: "error",
+        timer: 3000,
+      });
+    } else {
+      setModalLotesAbierto(true);
+    }
+  };
+  
+  const cerrarModalLotes = () => {
+    setModalLotesAbierto(false);
+  };
+  
 
   return (
     <div className={styles.vistaActivo}>
@@ -273,7 +298,7 @@ useEffect(() => {
           <div className={styles["action-buttons"]}>
             <button type="submit" className={styles["primary-button"]} onClick={handleBuscar} >Buscar</button>
             <button type="button" className={styles["secondary-button"]} onClick={handleOpenModal}>Agregar Activo</button>
-            <button type="button" className={styles["secondary-button"]}>Agregar por Lotes</button>
+            <button type="button" className={styles["secondary-button"]} onClick={abrirModalLotes}> Agregar por Lotes</button>
           </div>
         </div>
 
@@ -310,7 +335,6 @@ useEffect(() => {
                 <td>{activo.nomEstado}</td>
                 <td>
                 <button className={styles["table-button"]} onClick={(e)=>abrirModal(activo,e)}>Editar</button> <br /><br />
-                <button className={styles["table-button"]}>Historial</button>
               </td>
               </tr>
             ))
@@ -341,6 +365,14 @@ useEffect(() => {
           </div>
         </div>
       )}
+      {modalLotesAbierto && (
+  <div className={stylesModal["modal-overlay"]}>
+    <div className={stylesModal.modal}>
+      <ModalAgregarLotes onClose={cerrarModalLotes} />
+    </div>
+  </div>
+)}
+
       
     </div>
   );

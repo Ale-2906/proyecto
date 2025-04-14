@@ -295,5 +295,52 @@ class BuscarDatos {
     }
     
 
+    public static function buscarCantidadAcciones($id){
+        $sql="SELECT mandet.tipoMD, COUNT(*) AS cantidad
+         FROM mantenientodetalle mandet 
+         JOIN manten_activ manact ON manact.idmanAct = mandet.idmanAct 
+         WHERE manact.idManten = :id GROUP BY mandet.tipoMD";
+         $conn = Conexion::getInstance()->getConnection();
+         $result = $conn->prepare($sql);
+         $result->bindParam(':id', $id, PDO::PARAM_INT); // Vincular el parámetro
+         $result->execute();
+         $data = $result->fetchAll(PDO::FETCH_ASSOC);
+         $dataJson = json_encode($data);
+          echo ($dataJson); 
+    }
+    public static function buscarCantidadActividades($id){
+        $sql="SELECT a.idActi, COUNT(DISTINCT m.idManten) AS cantidad 
+        FROM actividad a 
+        JOIN mantenientodetalle md ON a.idActi = md.idReferencia AND md.tipoMD = 'act'
+         JOIN manten_activ ma ON md.idmanAct = ma.idmanAct 
+         JOIN manteniento m ON ma.idManten = m.idManten 
+         WHERE a.idActi= :id
+          GROUP BY a.idActi;";
+         $conn = Conexion::getInstance()->getConnection();
+         $result = $conn->prepare($sql);
+         $result->bindParam(':id', $id, PDO::PARAM_INT); // Vincular el parámetro
+         $result->execute();
+         $data = $result->fetchAll(PDO::FETCH_ASSOC);
+         $dataJson = json_encode($data);
+          echo ($dataJson); 
+    }
+    public static function buscarCantidadComponentes($id){
+        $sql="SELECT c.idCompo, COUNT(DISTINCT m.idManten) AS cantidad_mantenimientos
+         FROM componente c 
+         JOIN mantenientodetalle md ON c.idCompo = md.idReferencia AND md.tipoMD = 'act' 
+         JOIN manten_activ ma ON md.idmanAct = ma.idmanAct
+          JOIN manteniento m ON ma.idManten = m.idManten 
+          WHERE c.idCompo=:id 
+          GROUP BY c.idCompo;";
+         $conn = Conexion::getInstance()->getConnection();
+         $result = $conn->prepare($sql);
+         $result->bindParam(':id', $id, PDO::PARAM_INT); // Vincular el parámetro
+         $result->execute();
+         $data = $result->fetchAll(PDO::FETCH_ASSOC);
+         $dataJson = json_encode($data);
+          echo ($dataJson); 
+    }
+   
+
 }
 ?>

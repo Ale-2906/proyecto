@@ -43,9 +43,8 @@ function VentanaPrincipal() {
             <li className={styles.SidebarItem}>
               <a
                 href="#"
-                className={`${styles.SidebarLink} ${
-                  activeView === "activo" ? styles.active : ""
-                }`}
+                className={`${styles.SidebarLink} ${activeView === "activo" ? styles.active : ""
+                  }`}
                 onClick={() => setActiveView("activo")}
               >
                 Activos
@@ -54,9 +53,8 @@ function VentanaPrincipal() {
             <li className={styles.SidebarItem}>
               <a
                 href="#"
-                className={`${styles.SidebarLink} ${
-                  activeView === "procesoCompra" ? styles.active : ""
-                }`}
+                className={`${styles.SidebarLink} ${activeView === "procesoCompra" ? styles.active : ""
+                  }`}
                 onClick={() => setActiveView("procesoCompra")}
               >
                 Procesos de compra
@@ -69,15 +67,6 @@ function VentanaPrincipal() {
                 onClick={() => setActiveView("mantenimiento")}
               >
                 Mantenimientos
-              </a>
-            </li>
-            <li className={styles.SidebarItem}>
-              <a
-                href="#"
-                className={styles.SidebarLink}
-                onClick={() => setActiveView("modal")}
-              >
-                Reportes
               </a>
             </li>
             <li className={styles.SidebarItem}>

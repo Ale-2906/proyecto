@@ -108,6 +108,15 @@ switch ($opc) {
         }elseif (isset($_GET['busMantcomple'])) {
             $id =  $_GET['busMantcomple'];
             BuscarDatos::cargarEditManten($id);
+        }elseif (isset($_GET['buscarCantidadAcciones'])) {
+            $id =  $_GET['buscarCantidadAcciones'];
+            BuscarDatos::buscarCantidadAcciones($id);
+        } elseif (isset($_GET['buscarCantidadActividades'])) {
+            $id =  $_GET['buscarCantidadActividades'];
+            BuscarDatos::buscarCantidadActividades($id);
+        }elseif (isset($_GET['buscarCantidadComponentes'])) {
+            $id =  $_GET['buscarCantidadComponentes'];
+            BuscarDatos::buscarCantidadComponentes($id);
         }
         
         break;
@@ -144,7 +153,12 @@ switch ($opc) {
                 BuscarDatos::buscarMantenRespons();
             }elseif (isset($_GET['guarMantenActiv'])) {
                 Mantenimiento::guardarMantenActiv();
+            }elseif (isset($_GET['cargarExcelActivos'])) {
+                header('Content-Type: application/json'); // Muy importante
+                    Activo::cargarExcelActivos();
             }
+        
+            
         }
         break;
 

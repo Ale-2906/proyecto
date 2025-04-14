@@ -41,14 +41,14 @@ useEffect(() => {
     { name: "Actividad", selector: (row) => row.label },
     {
       name: "Opciones",
-      cell: (row) => <button onClick={()=>eliminarActividad(row.value)}>Retirar</button>,
+      cell: (row) => <button className={styles.button} onClick={()=>eliminarActividad(row.value)}>Retirar</button>,
       ignoreRowClick: true,
     },
   ];
   const columnasComponentes = [
     { name: "Componente", selector: (row) => row.label },
     { name: "Opciones",
-      cell: (row) => <button onClick={()=>eliminarComponente(row.value)}>Retirar</button>,
+      cell: (row) => <button className={styles.button} onClick={()=>eliminarComponente(row.value)}>Retirar</button>,
       ignoreRowClick: true,},];
 
   const cerrarModal = async () => {
@@ -247,8 +247,9 @@ const actualizarDetalle= async ()=>{
             onChange={valSelectActividad}
             value={selectActividades}
           />
-          <button onClick={agregarActividad}>Agregar</button>
-
+          <div className={styles["buttonContainer"]}>
+          <button className={styles.button} onClick={agregarActividad}>Agregar</button>
+          </div>
           <DataTable
             pagination
             paginationPerPage={5}
@@ -272,8 +273,9 @@ const actualizarDetalle= async ()=>{
             onChange={valSelectComponente}
             value={selectComponentes}
           />
-          <button onClick={agregarComponente}>Agregar</button>
-
+          <div className={styles["buttonContainer"]}>
+          <button className={styles.button} onClick={agregarComponente}>Agregar</button>
+          </div>
           <DataTable
             pagination
             paginationPerPage={5}
@@ -298,9 +300,9 @@ const actualizarDetalle= async ()=>{
         ></textarea>
 
         <div className={styles.buttonContainer}>
-          <button onClick={cerrarModal}>Cancelar</button>
-          {editarDetalles ? (<div><button onClick={actualizarDetalle}>Actualizar</button></div>
-          ) : (<div><button onClick={guardarDetalle}>Finalizar</button></div> )}
+          <button className={styles.button} onClick={cerrarModal}>Cancelar</button>
+          {editarDetalles ? (<div><button className={styles.button} onClick={actualizarDetalle}>Actualizar</button></div>
+          ) : (<div><button className={styles.button} onClick={guardarDetalle}>Finalizar</button></div> )}
 
         </div>
       </div>

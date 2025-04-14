@@ -4,8 +4,9 @@ import ProcesoCompraView from "../compra/ProcesoCompraView";
 import ActiveView from "../Actives/ActiveView";
 import MantenPrincipal from "../Manten/MantenPrincipal";
 import MantenProceso from "../Manten/MantenProceso";
-import ModalHisManten from "../Manten/ModalHisManten";
-import CrearActivo from "../ActivosLotes/CrearActivo";
+import ReporteVista from "../Reporte/ReporteVista";
+import ReportePrincipal from "../Reporte/ReportePrincipal";
+import CargarExcelActivos from "../ActivosLotes/CargarExcelActivos";
 
 
 const VentanaPrincipalFun = ({ activeView, setActiveView }) => {
@@ -27,10 +28,12 @@ const VentanaPrincipalFun = ({ activeView, setActiveView }) => {
     <section className="content">
       {activeView === "activo" && <ActiveView />}
       {activeView === "procesoCompra" && <ProcesoCompraView />}
-      {activeView === "reportes" && <ModalHisManten />}
-
+      {activeView === "reportes" && <ReportePrincipal setActiveView={setActiveView}/>}
       {activeView === "mantenimiento" && (<MantenPrincipal setActiveView={setActiveView} setDatosMantenimiento={setDatosMantenimiento} datosMantenimiento={datosMantenimiento} />)}
       {activeView === "MantenProceso" && (<MantenProceso setActiveView={setActiveView} datosMantenimiento={datosMantenimiento} />)}
+      {activeView === "reporteGeneral" && (<ReporteVista setActiveView={setActiveView} datosMantenimiento={datosMantenimiento} />)}
+      {activeView === "cargarExcelActivos" && <CargarExcelActivos />}
+
       
     </section>
   );

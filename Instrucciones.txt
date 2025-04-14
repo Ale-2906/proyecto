@@ -17,6 +17,7 @@ npm i react-select
 npm i react-data-table-component
 npm i sweetalert
 npm install react-icons --save
+npm install --save chart.js react-chartjs-2
 
  ------ Php JWT-------
 se mecesita instalar composer https://getcomposer.org/download/
